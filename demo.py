@@ -119,12 +119,11 @@ def save_reconstruction(droid, reconstruction_path):
     poses = droid.video.poses[:t].cpu().numpy()
     intrinsics = droid.video.intrinsics[:t].cpu().numpy()
 
-    Path("reconstructions/{}".format(reconstruction_path)).mkdir(parents=True, exist_ok=True)
-    np.save("reconstructions/{}/tstamps.npy".format(reconstruction_path), tstamps)
-    np.save("reconstructions/{}/images.npy".format(reconstruction_path), images)
-    np.save("reconstructions/{}/disps.npy".format(reconstruction_path), disps)
-    np.save("reconstructions/{}/poses.npy".format(reconstruction_path), poses)
-    np.save("reconstructions/{}/intrinsics.npy".format(reconstruction_path), intrinsics)
+    np.save(f"{reconstruction_path}/tstamps.npy", tstamps)
+    np.save(f"{reconstruction_path}/images.npy", images)
+    np.save(f"{reconstruction_path}/disps.npy", disps)
+    np.save(f"{reconstruction_path}/poses.npy", poses)
+    np.save(f"{reconstruction_path}/intrinsics.npy", intrinsics)
 
 
 if __name__ == '__main__':
